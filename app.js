@@ -4,10 +4,16 @@ const app = express()
 const PORT = process.env.PORT || 3000
 // 引用資料庫
 require('./config/mongoose')
+// 載入express-handlebars
+const exphbs = require('express-handlebars')
+// 建立名為hbs的樣版引擎，傳入exphbs與相關參數
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+// 啟用引擎
+app.set('view engine', 'hbs')
 
 // 設定首頁路由
 app.get('/', (req, res) => {
-  res.send('hello world')
+  res.render('index')
 })
 
 // 設定 PORT
