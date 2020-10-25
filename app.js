@@ -11,7 +11,13 @@ const exphbs = require('express-handlebars')
 // 引用 body-parser
 const bodyParser = require('body-parser')
 // 建立名為hbs的樣版引擎，傳入exphbs與相關參數
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.engine('hbs', exphbs({
+  defaultLayout: 'main',
+  extname: '.hbs',
+  helpers: {
+    equal: function (v1, v2) { return (v1 === v2) }
+  }
+}))
 // 啟用引擎
 app.set('view engine', 'hbs')
 // 用 app.use 規定每一筆請求都需要透過 body-parser 進行前置處理
