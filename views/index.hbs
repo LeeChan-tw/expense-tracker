@@ -14,20 +14,26 @@
     <h1>16888</h1>
   </div>
   <div>
-    <ul>
+    <ul class="list－group">
       {{#each records}}
-      <li>
-        {{this.name}}
-        {{#each ../categories}}
-        {{#ifcond ../this.category "===" this.category}}<i class="{{this.icon}}"></i>{{/ifcond}}
-        {{/each}}
-        {{this.category}}
-        {{this.date}}
-        {{this.amount}}
-        <a href="./records/{{ this._id }}/edit">edit</a>
-        <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline">
-          <button type="submit">delete</button>
-        </form>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-auto mr-auto">
+            <span style="display: inline; vertical-align: middle;width:50px;height:auto;">
+              {{#each ../categories}}
+              {{#ifcond ../this.category "===" this.category}}<i class="{{this.icon}}"></i>{{/ifcond}}
+              {{/each}}
+            </span>
+            <h4 style="display: inline; vertical-align: middle;">{{this.name}}</h4>
+            {{this.category}}
+            {{this.date}}
+            {{this.amount}}
+            <a href="./records/{{ this._id }}/edit">edit</a>
+            <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline">
+              <button type="submit">delete</button>
+            </form>
+          </div>
+        </div>
       </li>
       {{/each}}
     </ul>
