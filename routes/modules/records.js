@@ -36,6 +36,7 @@ router.get('/:id/edit', (req, res) => {
     })
     .catch(error => console.log(error))
 })
+// 修改項目路由(RESTful)
 router.put('/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
@@ -46,6 +47,13 @@ router.put('/:id', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
-
+// 刪除項目路由(RESTful)
+router.delete('/:id/', (req, res) => {
+  const id = req.params.id
+  return Record.findById(id)
+    .then(record => record.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
 // 匯出路由模組
 module.exports = router
