@@ -1,0 +1,17 @@
+<div class="container">
+  <h4>*必填欄位</h4>
+  <h2>請輸入你的支出</h2>
+  <form action="/records" method="POST">
+    <input type="text" placeholder="name" name="name">
+    <input type="date" placeholder="date" name="date">
+    <label for="Category">Category</label>
+    <select id="inputState" class="form-control" name="category">
+      <option disabled selected>Choose...</option>
+      {{#each categories}}
+      <option value={{this.category}}>{{this.category}}</option>
+      {{/each}}
+    </select>
+    <input type="text" placeholder="amount" name="amount">
+    <button type="submit">Create</button>
+  </form>
+</div>
