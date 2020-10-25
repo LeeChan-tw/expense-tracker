@@ -17,11 +17,6 @@ router.get('/', (req, res) => {
     })
     .catch(error => console.error(error))
 })
-// 新增項目頁面路由
-router.get('/records/new', (req, res) => {
-  Category.find()
-    .lean()
-    .then(categories => res.render('new', { categories }))
-})
+
 // 匯出路由模組
 module.exports = router
