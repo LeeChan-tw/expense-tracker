@@ -9,8 +9,12 @@ const Category = require('../../models/category')
 router.get('/', (req, res) => {
   Record.find()
     .lean()
-    .sort({ _id: 'asc' }) // desc
-    .then(records => res.render('index', { records }))
+    .sort({ date: 'asc' })
+    .then(records => {
+      Category.find()
+        .lean()
+        .then(categories => res.render('index', { records, categories }))
+    })
     .catch(error => console.error(error))
 })
 // 新增項目頁面路由

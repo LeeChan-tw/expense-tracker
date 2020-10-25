@@ -18,6 +18,9 @@
       {{#each records}}
       <li>
         {{this.name}}
+        {{#each ../categories}}
+        {{#ifcond ../this.category "===" this.category}}<i class="{{this.icon}}"></i>{{/ifcond}}
+        {{/each}}
         {{this.category}}
         {{this.date}}
         {{this.amount}}
