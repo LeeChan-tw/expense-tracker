@@ -1,1 +1,33 @@
-<h2>Hello world! 這是 index</h2>
+<div class="container">
+  <div class="input">
+    <form action="">
+      <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+        <option disabled selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </form>
+  </div>
+  <div>
+    <h4>總金額</h4>
+    <h1>16888</h1>
+  </div>
+  <div>
+    <ul>
+      {{#each records}}
+      <li>
+        {{this.name}}
+        {{this.category}}
+        {{this.date}}
+        {{this.amount}}
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div>
+    <form action="">
+      <button>哎呀，又破財惹</button>
+    </form>
+  </div>
+</div>
