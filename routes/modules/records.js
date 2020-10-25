@@ -36,11 +36,11 @@ router.get('/:id/edit', (req, res) => {
     })
     .catch(error => console.log(error))
 })
-router.post('/:id/edit', (req, res) => {
+router.put('/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .then(record => {
-      record = Object.assign(record, req.body)
+      record = Object.assign(record, req.body) // 好酷的方法 但我不是很懂
       return record.save()
     })
     .then(() => res.redirect('/'))
