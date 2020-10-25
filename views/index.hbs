@@ -1,17 +1,19 @@
 <div class="container">
   <div class="input">
-    <form action="" style="display: inline">
-      <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
-        <option disabled selected>支出類別</option>
+    <form action="/sort" method="GET">
+      <select name="sort" class="form-control btn-outline-secondary" id='inputType' onchange="this.form.submit()"
+        style="cursor: pointer; text-align: center; text-align-last: center">
+        <option selected value="all">所有支出類別</option>
         {{#each categories}}
-        <option value={{this.category}}>{{this.category}}</option>
+        <option {{#ifcond ../this.sort "===" this.category}}selected{{/ifcond}} value={{this.category}}>
+          {{this.category}}</option>
         {{/each}}
       </select>
     </form>
   </div>
   <div>
     <h4>總金額</h4>
-    <h1>16888</h1>
+    <h1>{{ sum }}</h1>
   </div>
   <div>
     <ul class="list－group">
