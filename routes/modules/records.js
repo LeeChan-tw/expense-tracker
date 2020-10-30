@@ -4,7 +4,6 @@ const router = express.Router()
 // 引用 model
 const Record = require('../../models/record')
 const Category = require('../../models/category')
-const category = require('../../models/category')
 
 // 新增項目頁面路由
 router.get('/new', (req, res) => {
@@ -29,11 +28,8 @@ router.get('/:id/edit', (req, res) => {
       const id = req.params.id
       return Record.findById(id)
         .lean()
-        .then(record => {
-          return category
-            .lean()
-            .then(category => res.render('edit', { categories, record, category }))
-        })
+        .then(record => res.render('edit', { categories, record })
+        )
     })
     .catch(error => console.log(error))
 })
