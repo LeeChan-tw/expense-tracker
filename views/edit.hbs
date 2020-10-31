@@ -3,8 +3,7 @@
   <h2>可以讓你改一下</h2>
   <form action="/records/{{ record._id }}?_method=PUT" method="POST">
     <input type="text" placeholder="name" name="name" value="{{ record.name }}" required>
-    <input type="text" placeholder="date" name="date" onfocus="(this.type='date')" onblur="(this.type='text')" required
-      value="{{ record.date }}">
+    <input type="date" placeholder="date" name="date" required value="{{ record.date }}">
     <label for="Category">Category</label>
     <select id="inputState" class="form-control" name="category">
       {{#each categories}}
@@ -12,7 +11,7 @@
         {{this.category}}</option>
       {{/each}}
     </select>
-    <input type="number" min="0" placeholder="amount" name="amount" value="{{ record.amount }}" required>
+    <input type="number" min="1" placeholder="amount" name="amount" value="{{ record.amount }}" required>
     <button class="btn btn-warning" type="submit">Save</button>
     <a class="btn btn-info" href="/">back</a>
   </form>

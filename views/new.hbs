@@ -2,16 +2,19 @@
   <h4>*必填欄位</h4>
   <h2>請輸入你的支出</h2>
   <form action="/records" method="POST">
-    <input type="text" placeholder="name" name="name" required>
-    <input type="text" placeholder="date" name="date" onfocus="(this.type='date')" onblur="(this.type='text')" required>
-    <label for="Category">Category</label>
+    <label for="name">說吧，你的小秘密</label>
+    <input type="text" placeholder="買了什麼呀？" name="name" required>
+    <label for="date">什麼時候？</label>
+    <input type="date" placeholder="日期(YYYY-MM-DD)" name="date" required>
+    <label for="category">支出類別</label>
     <select id="inputState" class="form-control" name="category" required>
       <option value="" disabled selected>Choose...</option>
       {{#each categories}}
       <option value={{this.category}}>{{this.category}}</option>
       {{/each}}
     </select>
-    <input type="number" min="0" placeholder="amount" name="amount" required>
+    <label for="amount">所以是多少錢？</label>
+    <input type="number" min="1" placeholder="花了多少" name="amount" required>
     <button type="submit" class="btn btn-info">Create</button>
   </form>
 </div>
