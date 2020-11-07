@@ -1,18 +1,43 @@
 <div class="container">
-  <h4>*必填欄位</h4>
-  <h2>可以讓你改一下</h2>
+  <div class="row">
+    <div class="col-12 text-center">
+      <h4>好啦，你想改什麼？
+      </h4>
+      <div class="col-auto text-right">
+        <h5>皆為必填欄位</h5>
+      </div>
+    </div>
+  </div>
   <form action="/records/{{ record._id }}?_method=PUT" method="POST">
-    <input type="text" placeholder="name" name="name" value="{{ record.name }}" required>
-    <input type="date" placeholder="date" name="date" required value="{{ record.date }}">
-    <label for="Category">Category</label>
-    <select id="inputState" class="form-control" name="category">
-      {{#each categories}}
-      <option {{#ifcond ../record.category "===" this.category}}selected{{/ifcond}} value={{this.category}}>
-        {{this.category}}</option>
-      {{/each}}
-    </select>
-    <input type="number" min="1" placeholder="amount" name="amount" value="{{ record.amount }}" required>
-    <button class="btn btn-warning" type="submit">Save</button>
-    <a class="btn btn-info" href="/">back</a>
+    <div class="form-row justify-content-center">
+      <div class="col-6">
+        <label for="name" class="">說吧，你的小秘密</label>
+        <input type="text" placeholder="買了什麼呀？" name="name" id="name" class="form-control" value="{{ record.name }}"
+          required>
+      </div>
+      <div class="col-6">
+        <label for="date">什麼時候？</label>
+        <input type="date" placeholder="日期(YYYY-MM-DD)" name="date" id="date" class="form-control"
+          value="{{ record.date }}" required>
+      </div>
+      <div class="col-6">
+        <label for="category">支出類別</label>
+        <select id="inputState" class="form-control" name="category" class="form-control">
+          {{#each categories}}
+          <option {{#ifcond ../record.category "===" this.category}}selected{{/ifcond}} value={{this.category}}>
+            {{this.category}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="col-6">
+        <label for="amount">所以是多少錢？</label>
+        <input type="number" min="1" placeholder="花了多少" name="amount" id="amount" class="form-control"
+          value="{{ record.amount }}" required>
+      </div>
+      <div class="col-4 mt-2">
+        <button class="btn btn-warning" type="submit">Save</button>
+        <a class="btn btn-info" href="/">back</a>
+      </div>
+    </div>
   </form>
 </div>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container bg-light mt-3">
   <div class="row">
     <div class="col-8">
       <form action="/sort" method="GET">
@@ -29,11 +29,11 @@
                     {{#ifcond ../this.category "===" this.category}}<i class="{{this.icon}}"></i>{{/ifcond}}
                     {{/each}}
                   </span>
-                  <h4 style="display: inline; vertical-align: middle;">{{this.name}}</h4>
-                  <h5>{{this.date}}</h5>
+                  <h5 style="display: inline; vertical-align: middle;">{{this.name}}</h5>
+                  <h6>{{this.date}}</h6>
                 </div>
-                <div class="col-6 align-self-center">
-                  <h5 class="text-warning">{{this.amount}}</h5>
+                <div class="col-6 align-self-center text-center">
+                  <h4 class="text-warning">{{this.amount}}</h4>
                 </div>
               </div>
             </div>
